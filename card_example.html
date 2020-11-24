@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Delivery +</title>
+	  <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+	<style>
+    	.header {
+    	background-color: #f1f1f1;
+   		padding: 30px;
+    	text-align: center;
+    	}
+  	</style>
+</head>
+
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="header">
+   				<h2>Delivery +</h2>
+				<p>The Delivery Contractors Best Friend</p>
+			</div>
+		</div>
+
+		<div class="row">
+			<p>You have </p><p id="demo"></p>
+		</div>
+
+		<div class="row">
+			<h3>PRESETS</h3>
+		</div>
+
+		<div class="row">
+			<div class="col s12 m6 l4">
+				<div class="card blue-grey darken-1">
+					<div class="card-content white-text">
+						<span class="card-title">Cardio Ability</span>
+						<p>Determined by what option you choose, your choice will update the algorithim to accomodate accordingly. For example, if you are "rarely active," the algorithim will not advise you to take up a delivery that exceeds 5 kilometers. <br><br> Here is the following definitions:<br><br> Rarely Active --- Can cycle for about 5km <br>Sometimes Active --- Can cyle for about 10km <br>Active --- Can cycle for about 20km<br>Very Active --- Can cycle for about 40km</p>
+					</div>
+					<div class="card-action">
+						<select class="blue-grey darken-1" id="pcardioability">
+						    <option value="" class="disabled selected blue-grey darken-1">Choose your option</option>
+						    <option value="1" class="blue-grey darken-1">Rarely Active</option>
+						    <option value="2" class="blue-grey darken-1">Sometimes Active</option>
+						    <option value="3" class="blue-grey darken-1">Active</option>
+						    <option value="4" class="blue-grey darken-1">Very Active</option>
+					    </select>
+					</div>
+				</div>
+			</div>
+	    	<div class="col s12 m6 l4">
+	      		<div class="card blue-grey darken-1">
+	        		<div class="card-content white-text">
+	          			<span class="card-title">Available Time</span>
+	          			<p>Determined by how much time you have, a countdown timer will appear to help you take care of your time, and in extreme cases of a delivery that takes 25% of your time without a large payout, it will advise you to not take up the delivery.</p>
+	        		</div>
+	        		<div class="card-action">
+	        			<form class="container">
+                			<div class="input-field">
+                  				<input id="pavailabletime" type="text">
+                  				<label for="pavailabletime">Available Time</label>
+               				</div>
+               			</form>
+	        		</div>
+	      		</div>
+	    	</div>
+	    	<div class="col s12 m6 l4">
+	      		<div class="card blue-grey darken-1">
+	        		<div class="card-content white-text">
+	          			<span class="card-title">Area Lock</span>
+	          			<p>Determined by if it is on or not, Area Lock automatically advises you to not accept a delivery if the delivery is more than 10 kilometers away.</p>
+	        		</div>
+	        		<div class="card-action">
+	        			<select class="blue-grey darken-1" id="parealock">
+							<option value="" class="disabled selected blue-grey darken-1">On/Off</option>
+							<option value="1" class="blue-grey darken-1">On</option>
+							<option value="2" class="blue-grey darken-1">Off</option>
+						</select>
+	        		</div>
+	      		</div>
+	    	</div>
+		</div>
+		<div class="row">
+			<h3>DELIVERY SPECIFIC INFORMATION</h3>
+		</div>
+		<div class="row">
+	  		<div class="col s12 m6 l4">
+				<div class="card blue-grey darken-1">
+					<div class="card-content white-text">
+						<span class="card-title">Estimated Delivery Time</span>
+						<p>Here, you input the estimated time of the delivery, supplied to you by the delivery app. Be sure to input the time in minutes. For example, (although unreleastic) say Uber says it will take one hour and fifteen minutes, input 75 minutes.</p>
+					</div>
+					<div class="card-action">
+						<form class="container">
+                			<div class="input-field">
+                  				<input id="dtime" type="text">
+                  				<label for="dtime">Minutes</label>
+               				</div>
+               			</form>
+	  				</div>
+  				</div>
+  			</div>
+  			<div class="col s12 m6 l4">
+  				<div class="card blue-grey darken-1">
+  					<div class="card-content white-text">
+  						<span class="card-title">Estimated Delivery Earnings</span>
+  						<p>Here, you input the estimated earnings of the delivery, supplied to you by the delivery app. Be sure to input the earnings in the $ format: 00.00. Later on, we will add compatibility for other currencies.</p>
+  					</div>
+  					<div class="card-action">
+  						<form class="container">
+                			<div class="input-field">
+                  				<input id="dearnings" type="text">
+                  				<label for="dearnings">Earnings</label>
+               				</div>
+               			</form>
+  					</div>
+  				</div>
+  			</div>
+  			<div class="col s12 m6 l4">
+  				<div class="card blue-grey darken-1">
+  					<div class="card-content white-text">
+  						<span class="card-title">Estimated Delivery Distance</span>
+  						<p>Here, you input the estimated distance of the delivery, supplied to you by the delivery app. Be sure to input the distance in meters. Later on, we will add compatibility for other currencies.</p>
+  					</div>
+  					<div class="card-action">
+  						<form class="container">
+                			<div class="input-field">
+                  				<input id="ddistance" type="text">
+                  				<label for="ddistance">Distance</label>
+               				</div>
+               			</form>
+  					</div>
+  				</div>
+  			</div>
+  		</div>
+  		<div class="row">
+  			<button class="btn waves-effect waves-light" type="submit" name="action" onclick="countdownclock()">Submit
+  				<i class="material-icons right">send</i>
+  			</button>
+  		</div>
+  		<div class="row">
+			<h3>RESULTS</h3>
+			<p id="advice"></p>
+		</div>
+  	</div>
+
+
+	<!-- Compiled and minified JavaScript -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+	<script>
+		document.addEventListener('DOMContentLoaded', function() {
+			options = {}
+	    	var elems = document.querySelectorAll('select');
+	   		var instances = M.FormSelect.init(elems, options);
+	  	});
+
+  		document.addEventListener('DOMContentLoaded', function() {
+  			options = {}
+    		var elems = document.querySelectorAll('.timepicker');
+    		var instances = M.Timepicker.init(elems, options);
+  		});
+
+  		function advicegenerate(){
+  			var arealock = document.getElementById("parealock").value;
+  			var availabletime = document.getElementById("pavailabletime").value;
+  			var cardioability = document.getElementById("pcardioability").value;
+  			var deliverytime = document.getElementById("dtime").value;
+  			var deliveryearnings = document.getElementById("dearnings").value;
+  			var deliverydistance = document.getElementById("ddistance").value;
+  			var fourthavailabletime = availabletime/4;
+  			var wage = deliveryearnings/deliverytime;
+  			
+  			if (arealock == 1){
+  				if (deliverydistance > 15000){
+  					document.getElementById("advice").innerHTML = "This delivery would not be worthwhile.";
+  				}
+  			}
+  			if (cardioability == 1){
+  				if (deliverydistance > 5000){
+  					document.getElementById("advice").innerHTML = "This delivery would not be worthwhile.";
+  				} else {
+						document.getElementById("advice").innerHTML = "This delivery would be worthwhile.";
+					}
+  				if (fourthavailabletime < deliverytime){
+  					if (wage > 15){
+						document.getElementById("advice").innerHTML = "This delivery would not be worthwhile.";  	
+					} else {
+						document.getElementById("advice").innerHTML = "This delivery would be worthwhile.";
+					}
+  				}
+  			}
+  			if (cardioability == 2){
+  				if (deliverydistance > 10000){
+  					document.getElementById("advice").innerHTML = "This delivery would not be worthwhile.";
+  				} else {
+						document.getElementById("advice").innerHTML = "This delivery would be worthwhile.";
+					}
+  				if (fourthavailabletime < deliverytime){
+  					if (wage > 15){
+						document.getElementById("advice").innerHTML = "This delivery would not be worthwhile.";  	
+					} else {
+						document.getElementById("advice").innerHTML = "This delivery would be worthwhile.";
+					}
+  				}
+  			}
+  			if (cardioability == 3){
+  				if (deliverydistance > 20000){
+  					document.getElementById("advice").innerHTML = "This delivery would not be worthwhile.";
+  				} else {
+						document.getElementById("advice").innerHTML = "This delivery would be worthwhile.";
+					}
+  				if (fourthavailabletime < deliverytime){
+  					if (wage > 15){
+						document.getElementById("advice").innerHTML = "This delivery would not be worthwhile.";  	
+					} else {
+						document.getElementById("advice").innerHTML = "This delivery would be worthwhile.";
+					}
+  				}
+  			}
+  			if (cardioability == 4){
+  				if (deliverydistance > 40000){
+  					document.getElementById("advice").innerHTML = "This delivery would not be worthwhile.";
+  				} else {
+						document.getElementById("advice").innerHTML = "This delivery would be worthwhile.";
+					}
+  				if (fourthavailabletime < deliverytime){
+  					if (wage > 15){
+						document.getElementById("advice").innerHTML = "This delivery would not be worthwhile.";  	
+					} else {
+						document.getElementById("advice").innerHTML = "This delivery would be worthwhile.";
+					}
+  				}
+  			}
+  		}
+  		function countdownclock(){
+    		var today = new Date();
+    		var milliseconds = today.getTime();
+        var availabletime = document.getElementById("pavailabletime").value;
+        var availabletimemil = availabletime * 60000;
+        var expectedfinish = milliseconds + availabletimemil;
+        var expectedfinishdate = new Date(expectedfinish);
+
+        var countDownDate = new Date(expectedfinishdate).getTime();
+        var x = setInterval(function() {
+        var now = new Date().getTime();
+        var distance = countDownDate - now;
+        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        document.getElementById("demo").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+          if (distance < 0) {
+            clearInterval(x);
+            document.getElementById("demo").innerHTML = "EXPIRED";
+          }
+        }, 1000);
+
+        advicegenerate();
+  		}
+	</script>
+
+</body>
+</html>
